@@ -20,7 +20,7 @@ export const Building: React.FC<BuildingProps> = ({
   isSmall = false,
 }) => {
   return (
-    <div className={`relative flex items-center justify-center ${isSmall ? 'h-[40vh] lg:h-[70vh] w-auto aspect-[10/16]' : 'h-full w-full'}`}>
+    <div className={`relative flex items-center justify-center ${isSmall ? 'h-[40vh] lg:h-[70vh] w-auto aspect-10/16' : 'h-full w-full'}`}>
       <img src="/mainBuildingImg.jpeg" alt="Cliff Tower" className="w-full h-full object-cover object-center rounded-2xl shadow-xl border border-zinc-200" />
 
       {/* Floor Hitboxes Overlay */}

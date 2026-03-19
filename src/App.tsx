@@ -45,13 +45,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#FDFBF7] text-zinc-900 font-sans flex flex-col overflow-hidden relative">
+    <div className="min-h-dvh bg-[#FDFBF7] text-zinc-900 font-sans flex flex-col overflow-hidden relative">
 
       {/* Background for Full Screen Mode */}
       {!selectedFloor && (
         <div className="absolute inset-0 z-0">
           <img src="/mainBuildingImg.jpeg" alt="Background" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-[#FDFBF7]/80 to-[#FDFBF7]/40" />
+          <div className="absolute inset-0 bg-linear-to-t from-white/90 via-[#FDFBF7]/80 to-[#FDFBF7]/40" />
         </div>
       )}
 
@@ -127,7 +127,7 @@ export default function App() {
                     </button>
                     <button
                       onClick={closeDetailView}
-                      className="p-2 lg:p-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full transition-colors shadow-md flex-shrink-0"
+                      className="p-2 lg:p-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full transition-colors shadow-md shrink-0"
                     >
                       <X className="w-4 h-4 lg:w-5 lg:h-5" />
                     </button>
@@ -138,12 +138,12 @@ export default function App() {
                 <div className={`flex flex-col lg:flex-row gap-4 lg:gap-6 pt-2 lg:pt-4 w-full h-auto lg:h-full lg:min-h-0 ${compareMode ? '' : 'max-w-4xl mx-auto'}`}>
 
                   {/* Primary Floor Plan */}
-                  <div className={`flex flex-col bg-white rounded-xl border border-[#E5E0D8] shadow-sm overflow-hidden p-4 lg:p-6 relative min-h-[400px] lg:min-h-[500px] ${compareMode ? 'w-full lg:w-1/2' : 'w-full h-full'}`}>
+                  <div className={`flex flex-col bg-white rounded-xl border border-[#E5E0D8] shadow-sm overflow-hidden p-4 lg:p-6 relative min-h-100 lg:min-h-125 ${compareMode ? 'w-full lg:w-1/2' : 'w-full h-full'}`}>
                     <div className="absolute top-4 lg:top-6 left-4 lg:left-6 inline-flex px-2 lg:px-3 py-1 bg-[#C8A05B] text-white text-[10px] lg:text-xs font-semibold tracking-wider rounded z-10">
                       {selectedFloorData?.type}
                     </div>
                     {selectedFloorData && (
-                      <FloorPlan type={selectedFloorData.type} pdfPage={selectedFloorData.pdfPage} className="w-full flex-1 mt-6 lg:mt-8 min-h-[300px]" />
+                      <FloorPlan type={selectedFloorData.type} pdfPage={selectedFloorData.pdfPage} className="w-full flex-1 mt-6 lg:mt-8 min-h-75" />
                     )}
                   </div>
 
@@ -154,18 +154,18 @@ export default function App() {
                         <motion.div
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          className="w-full lg:w-1/2 flex flex-col bg-white rounded-xl border border-emerald-200 shadow-sm overflow-hidden p-4 lg:p-6 relative min-h-[400px] lg:min-h-[500px]"
+                          className="w-full lg:w-1/2 flex flex-col bg-white rounded-xl border border-emerald-200 shadow-sm overflow-hidden p-4 lg:p-6 relative min-h-100 lg:min-h-125"
                         >
                           <div className="absolute top-4 lg:top-6 left-4 lg:left-6 inline-flex px-2 lg:px-3 py-1 bg-emerald-600 text-white text-[10px] lg:text-xs font-semibold tracking-wider rounded z-10">
                             {compareFloorData.type}
                           </div>
-                          <FloorPlan type={compareFloorData.type} pdfPage={compareFloorData.pdfPage} className="w-full flex-1 mt-6 lg:mt-8 min-h-[300px]" />
+                          <FloorPlan type={compareFloorData.type} pdfPage={compareFloorData.pdfPage} className="w-full flex-1 mt-6 lg:mt-8 min-h-75" />
                         </motion.div>
                       ) : (
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-zinc-50 rounded-xl border-2 border-dashed border-zinc-200 text-zinc-400 p-6 lg:p-8 text-center min-h-[250px] lg:min-h-0"
+                          className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-zinc-50 rounded-xl border-2 border-dashed border-zinc-200 text-zinc-400 p-6 lg:p-8 text-center min-h-62.5 lg:min-h-0"
                         >
                           <p className="text-base lg:text-lg font-medium text-zinc-600 mb-1 lg:mb-2">Select a different floor layout</p>
                           <p className="text-xs lg:text-sm max-w-sm">Tap on the building navigator to select a floor with a unique layout to compare against {selectedFloorData?.name}.</p>
